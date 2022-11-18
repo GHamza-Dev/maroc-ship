@@ -3,6 +3,7 @@ package com.example.marocship.entities;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "delivery_manager")
 public class DeliveryManager extends Person{
 
     public DeliveryManager() {}
