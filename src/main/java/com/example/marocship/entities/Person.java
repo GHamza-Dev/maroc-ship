@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @MappedSuperclass
 public class Person {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long personId;
     private String email;
     private String username;
