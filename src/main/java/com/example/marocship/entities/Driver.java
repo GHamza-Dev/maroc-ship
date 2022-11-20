@@ -17,11 +17,23 @@ public class Driver extends Person{
     @OneToMany(mappedBy = "driver")
     private Collection<Delivery> deliveries;
 
-
     public Driver() {}
 
-    public Driver(long personId, String email, String username, String password) {
+    public Driver(long personId, String email, String username, String password, long vehcileId) {
         super(personId, email, username, password);
+        this.vehicleId = vehcileId;
+    }
+
+    public long getVehicleId() {
+        return vehicleId;
+    }
+
+    public void setVehicleId(long vehicleId) {
+        this.vehicleId = vehicleId;
+    }
+
+    public Vehicle getVehicleByVehicleId() {
+        return vehicleByVehicleId;
     }
 
     public long getVehicleId() {
