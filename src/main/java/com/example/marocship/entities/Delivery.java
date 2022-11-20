@@ -29,12 +29,50 @@ public class Delivery {
     @Column(name = "delivered_at")
     private Timestamp deliveredAt;
 
+
+    @Column(name = "vehicle_cat_id")
+    private long vehicleCatId;
     @ManyToOne
-    @JoinColumn(name = "vehicle_cat_id")
+    @JoinColumn(name = "vehicle_cat_id",insertable = false,updatable = false)
     VehicleCategory vehicleCategory;
+
+    @Column(name = "driver_id")
+    private long driverId;
+
+    @ManyToOne
+    @JoinColumn(name = "driver_id",insertable = false,updatable = false)
+    private Driver driver;
+
+    @Column(name = "delivery_manager_id")
+    private long deliveryManagerId;
+
+    @ManyToOne
+    @JoinColumn(name = "delivery_manager_id",insertable = false,updatable = false)
+    DeliveryManager deliveryManager;
+
 
     @Transient
     private float price;
+
+    public Long getVehicleCatId() {
+        return vehicleCatId;
+    }
+
+    public void setVehicleCatId(Long vehicleCatId) {
+        this.vehicleCatId = vehicleCatId;
+    }
+
+    public VehicleCategory getVehicleCategory() {
+        return vehicleCategory;
+    }
+
+    public DeliveryManager getDeliveryManager() {
+        return deliveryManager;
+    }
+
+    public void setDeliveryManager(DeliveryManager deliveryManager) {
+        this.deliveryManager = deliveryManager;
+    }
 
     public long getId() {
         return id;
@@ -84,5 +122,53 @@ public class Delivery {
 
     public void setDeliveredAt(Timestamp deliveredAt) {
         this.deliveredAt = deliveredAt;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public void setVehicleCatId(long vehicleCatId) {
+        this.vehicleCatId = vehicleCatId;
+    }
+
+    public void setVehicleCategory(VehicleCategory vehicleCategory) {
+        this.vehicleCategory = vehicleCategory;
+    }
+
+    public long getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(long driverId) {
+        this.driverId = driverId;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
+    public long getDeliveryManagerId() {
+        return deliveryManagerId;
+    }
+
+    public void setDeliveryManagerId(long deliveryManagerId) {
+        this.deliveryManagerId = deliveryManagerId;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 }

@@ -17,6 +17,9 @@ public class VehicleCategory {
     @OneToMany(mappedBy = "vehicleCategory")
     private Collection<Delivery> deliveries;
 
+    @Column(length = 50)
+    private String type;
+
     public String getType() {
         return type;
     }
@@ -33,7 +36,19 @@ public class VehicleCategory {
         this.id = id;
     }
 
-    @Column(length = 50)
-    private String type;
+    public Collection<Vehicle> getVehicles() {
+        return vehicles;
+    }
 
+    public void setVehicles(Collection<Vehicle> vehicles) {
+        this.vehicles = vehicles;
+    }
+
+    public Collection<Delivery> getDeliveries() {
+        return deliveries;
+    }
+
+    public void setDeliveries(Collection<Delivery> deliveries) {
+        this.deliveries = deliveries;
+    }
 }
