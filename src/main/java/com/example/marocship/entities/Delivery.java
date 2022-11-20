@@ -29,12 +29,49 @@ public class Delivery {
     @Column(name = "delivered_at")
     private Timestamp deliveredAt;
 
+    public Long getVehicleCatId() {
+        return vehicleCatId;
+    }
+
+    public void setVehicleCatId(Long vehicleCatId) {
+        this.vehicleCatId = vehicleCatId;
+    }
+
+    @Column(name = "vehicle_cat_id")
+    private long vehicleCatId;
     @ManyToOne
-    @JoinColumn(name = "vehicle_cat_id")
+    @JoinColumn(name = "vehicle_cat_id",insertable = false,updatable = false)
     VehicleCategory vehicleCategory;
+
+    @Column(name = "driver_id")
+    private long driverId;
+
+    @ManyToOne
+    @JoinColumn(name = "driver_id",insertable = false,updatable = false)
+    private Driver driver;
+
+    public VehicleCategory getVehicleCategory() {
+        return vehicleCategory;
+    }
+
+    @Column(name = "delivery_manager_id")
+    private long deliveryManagerId;
+
+    @ManyToOne
+    @JoinColumn(name = "delivery_manager_id",insertable = false,updatable = false)
+    DeliveryManager deliveryManager;
+
 
     @Transient
     private float price;
+
+    public DeliveryManager getDeliveryManager() {
+        return deliveryManager;
+    }
+
+    public void setDeliveryManager(DeliveryManager deliveryManager) {
+        this.deliveryManager = deliveryManager;
+    }
 
     public long getId() {
         return id;

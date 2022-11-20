@@ -11,9 +11,15 @@ public class Vehicle {
     @Column(length = 50)
     private String name;
 
+    @Column(name = "vehicle_cat_id")
+    private long vehicleCatId;
+
     @ManyToOne
-    @JoinColumn(name = "vehicle_cat_id")
+    @JoinColumn(name = "vehicle_cat_id",insertable = false,updatable = false)
     private VehicleCategory vehicleCategory;
+
+    @OneToOne(mappedBy = "vehicle")
+    private Driver driver;
 
     public long getId() {
         return id;

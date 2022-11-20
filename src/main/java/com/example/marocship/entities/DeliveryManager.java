@@ -2,9 +2,14 @@ package com.example.marocship.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Collection;
+
 @Entity
 @Table(name = "delivery_manager")
 public class DeliveryManager extends Person{
+
+    @OneToMany(mappedBy = "deliveryManager")
+    Collection<Delivery> deliveries;
 
     public DeliveryManager() {}
 
