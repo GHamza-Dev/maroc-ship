@@ -5,9 +5,16 @@ import jakarta.persistence.*;
 @MappedSuperclass
 public class Person {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long personId;
+
+    @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "username", nullable = false)
     private String username;
+
+    @Column(name = "password", nullable = false)
     private String password;
 
     public Person(){}
