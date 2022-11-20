@@ -32,18 +32,6 @@ public class Driver extends Person{
         this.vehicleId = vehicleId;
     }
 
-    public Vehicle getVehicleByVehicleId() {
-        return vehicleByVehicleId;
-    }
-
-    public long getVehicleId() {
-        return vehicleId;
-    }
-
-    public void setVehicleId(long vehicleId) {
-        this.vehicleId = vehicleId;
-    }
-
     public Vehicle getVehicle() {
         return vehicle;
     }
