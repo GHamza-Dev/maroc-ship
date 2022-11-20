@@ -17,4 +17,11 @@ public class DeliveryManager extends Person{
         super(personId, email, username, password);
     }
 
+    public Collection<Delivery> getDeliveries() {
+        return deliveries;
+    }
+
+    public void setDeliveries(Collection<Delivery> deliveries) {
+        this.deliveries = deliveries;
+    }
 }

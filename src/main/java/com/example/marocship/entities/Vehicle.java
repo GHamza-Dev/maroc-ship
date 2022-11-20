@@ -36,4 +36,28 @@ public class Vehicle {
     public void setName(String name) {
         this.name = name;
     }
+
+    public long getVehicleCatId() {
+        return vehicleCatId;
+    }
+
+    public void setVehicleCatId(long vehicleCatId) {
+        this.vehicleCatId = vehicleCatId;
+    }
+
+    public VehicleCategory getVehicleCategory() {
+        return vehicleCategory;
+    }
+
+    public void setVehicleCategory(VehicleCategory vehicleCategory) {
+        this.vehicleCategory = vehicleCategory;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
 }

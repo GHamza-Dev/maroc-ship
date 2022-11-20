@@ -29,13 +29,6 @@ public class Delivery {
     @Column(name = "delivered_at")
     private Timestamp deliveredAt;
 
-    public Long getVehicleCatId() {
-        return vehicleCatId;
-    }
-
-    public void setVehicleCatId(Long vehicleCatId) {
-        this.vehicleCatId = vehicleCatId;
-    }
 
     @Column(name = "vehicle_cat_id")
     private long vehicleCatId;
@@ -50,10 +43,6 @@ public class Delivery {
     @JoinColumn(name = "driver_id",insertable = false,updatable = false)
     private Driver driver;
 
-    public VehicleCategory getVehicleCategory() {
-        return vehicleCategory;
-    }
-
     @Column(name = "delivery_manager_id")
     private long deliveryManagerId;
 
@@ -64,6 +53,18 @@ public class Delivery {
 
     @Transient
     private float price;
+
+    public Long getVehicleCatId() {
+        return vehicleCatId;
+    }
+
+    public void setVehicleCatId(Long vehicleCatId) {
+        this.vehicleCatId = vehicleCatId;
+    }
+
+    public VehicleCategory getVehicleCategory() {
+        return vehicleCategory;
+    }
 
     public DeliveryManager getDeliveryManager() {
         return deliveryManager;
@@ -121,5 +122,53 @@ public class Delivery {
 
     public void setDeliveredAt(Timestamp deliveredAt) {
         this.deliveredAt = deliveredAt;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public void setVehicleCatId(long vehicleCatId) {
+        this.vehicleCatId = vehicleCatId;
+    }
+
+    public void setVehicleCategory(VehicleCategory vehicleCategory) {
+        this.vehicleCategory = vehicleCategory;
+    }
+
+    public long getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(long driverId) {
+        this.driverId = driverId;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
+    public long getDeliveryManagerId() {
+        return deliveryManagerId;
+    }
+
+    public void setDeliveryManagerId(long deliveryManagerId) {
+        this.deliveryManagerId = deliveryManagerId;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 }
