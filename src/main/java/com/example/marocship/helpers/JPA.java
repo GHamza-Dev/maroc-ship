@@ -29,6 +29,20 @@ public class JPA {
         }
     }
 
+    public static void wrap(EntityManager em,Consumer<EntityManager> action){
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            action.accept(em);
+            tx.commit();
+        }catch (RuntimeException re){
+            tx.rollback();
+            throw re;
+        }finally {
+            em.close();
+        }
+    }
+
     public static EntityManagerFactory entityManagerFactory() {
         return emf;
     }

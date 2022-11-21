@@ -3,7 +3,7 @@ package com.example.marocship.dao;
 import java.util.List;
 
 public interface Dao<D> {
-    D get(int  id);
+    D get(long  id);
 
     List<D> getAll();
 
