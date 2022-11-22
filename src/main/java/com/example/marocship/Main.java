@@ -8,5 +8,6 @@ public class Main {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
         EntityManager em = emf.createEntityManager();
+        EntityTransaction et = em.getTransaction();
     }
 }
