@@ -12,17 +12,17 @@ public class Main {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
         EntityManager em = emf.createEntityManager();
         EntityTransaction et = em.getTransaction();
-
-        Delivery delivery = new Delivery();
-        delivery.setOrigin("Safi");
-        delivery.setDestination("Korea");
-
-        try{
-            et.begin();
-            em.persist(delivery);
-            et.commit();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+//
+//        Delivery delivery = new Delivery();
+//        delivery.setOrigin("Safi");
+//        delivery.setDestination("Korea");
+//
+//        try{
+//            et.begin();
+//            em.persist(delivery);
+//            et.commit();
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
     }
 }
