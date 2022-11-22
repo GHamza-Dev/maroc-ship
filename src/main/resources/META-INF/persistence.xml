@@ -6,11 +6,10 @@
     <persistence-unit name="default">
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/maroc_ship"/>
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
             <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value=""/>
             <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>
 </persistence>
