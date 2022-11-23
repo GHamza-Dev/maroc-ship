@@ -12,6 +12,7 @@
             <param-name>jakarta.faces.FACELETS_SUFFIX</param-name>
             <param-value>.xhtml .view.xml .jspx</param-value>
         </context-param>
+
         <servlet>
             <servlet-name>Faces Servlet</servlet-name>
             <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
@@ -23,6 +24,6 @@
         </servlet-mapping>
 
         <welcome-file-list>
-            <welcome-file>hello.xhtml</welcome-file>
+            <welcome-file>login.xhtml</welcome-file>
         </welcome-file-list>
 </web-app>
