@@ -1,5 +1,6 @@
 package com.example.marocship.dao;
 
+import com.example.marocship.entities.Manager;
 import com.example.marocship.entities.Person;
 import com.example.marocship.helpers.JPA;
 import jakarta.persistence.EntityManager;
@@ -34,5 +35,16 @@ public class PersonDao<P extends Person>{
         EntityManager em = JPA.entityManager();
         Person personToBeRemoved = em.merge(person);
         JPA.wrap(em,entityManager -> entityManager.remove(personToBeRemoved));
+    }
+
+    public Person userExist(String email, String password,Class clazz){
+        Query query = JPA.entityManager().createQuery("SELECT p FROM "+clazz.getSimpleName()+" p WHERE p.email = :email AND p.password = :password");
+
+        query.setParameter("email",email);
+        query.setParameter("password",password);
+
+        List<Person> person = query.getResultList();
+
+        return person.size() > 0 ? person.get(0) : null;
     }
 }
