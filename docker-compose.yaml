@@ -6,20 +6,28 @@ services:
     volumes:
       - /target:/opt/jboss/wildfly/standalone/deployments
     ports:
-      - "8081:8080"
+      - "2005:8080"
     depends_on:
       - mysqldb
   mysqldb:
     image: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: maroc_ship
+      MYSQL_ROOT_USER: user
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_DATABASE: maroc_ship
     ports:
       - '3306:3306'
     expose:
         - '3306'
     volumes:
-        - mydatabase:/var/lib/mysql
-  volumes:
-    mydatabase:
+        - C:\data:/var/lib/mysql
+  phpMyAdmin:
+    depends_on:
+      - mysqldb
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - '8081:80'
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
