@@ -6,6 +6,7 @@ import com.example.marocship.dao.DeliveryDao;
 import com.example.marocship.dao.VehicleCatDao;
 import com.example.marocship.entities.Delivery;
 import com.example.marocship.entities.VehicleCategory;
+import com.example.marocship.helpers.Enum;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
@@ -28,11 +29,13 @@ public class DeliveryController {
     @Inject
     Auth auth;
     private List<VehicleCategory> vehicleCategories;
+    private List<Delivery> deliveries;
 
 
     @PostConstruct
     public void initialize(){
         this.vehicleCategories = vehicleCatDao.getAll();
+        this.deliveries = deliveryDao.getAll();
     }
 
     public void createDelivery(){
@@ -45,11 +48,16 @@ public class DeliveryController {
         delivery.setVehicleCatId(deliveryBean.getVehicleCatId());
         delivery.setDeliveryManagerId(auth.getUser().getPersonId());
         delivery.setDriver(null);
+        delivery.setStatus(Enum.status.PENDING.toString());
 
         deliveryDao.save(delivery);
     }
 
     public List<VehicleCategory> getVehicleCategories() {
         return vehicleCategories;
+    }
+
+    public List<Delivery> getDeliveries() {
+        return deliveries;
     }
 }

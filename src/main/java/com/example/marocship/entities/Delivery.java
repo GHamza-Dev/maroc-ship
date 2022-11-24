@@ -31,20 +31,20 @@ public class Delivery {
 
 
     @Column(name = "vehicle_cat_id")
-    private long vehicleCatId;
+    private Long vehicleCatId;
     @ManyToOne
     @JoinColumn(name = "vehicle_cat_id",insertable = false,updatable = false)
     VehicleCategory vehicleCategory;
 
     @Column(name = "driver_id",insertable = false,updatable = false)
-    private long driverId;
+    private Long driverId;
 
     @ManyToOne
     @JoinColumn(name = "driver_id",nullable = false)
     private Driver driver;
 
     @Column(name = "delivery_manager_id")
-    private long deliveryManagerId;
+    private Long deliveryManagerId;
 
     @ManyToOne
     @JoinColumn(name = "delivery_manager_id",insertable = false,updatable = false)
@@ -74,11 +74,11 @@ public class Delivery {
         this.deliveryManager = deliveryManager;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -140,7 +140,7 @@ public class Delivery {
         this.vehicleCategory = vehicleCategory;
     }
 
-    public long getDriverId() {
+    public Long getDriverId() {
         return driverId;
     }
 
@@ -156,7 +156,7 @@ public class Delivery {
         this.driver = driver;
     }
 
-    public long getDeliveryManagerId() {
+    public Long getDeliveryManagerId() {
         return deliveryManagerId;
     }
 

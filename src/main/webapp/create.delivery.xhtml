@@ -33,5 +33,17 @@
 
         <h:commandButton value="Create" actionListener="#{deliveryController.createDelivery}" />
     </h:form>
+
+    <hr/>
+    <h3>Deliveries</h3>
+    <p:dataTable value="#{deliveryController.deliveries}" var="dlvry">
+        <p:column styleClass="border:solid 1px red; padding:12px;" headerText="ID">
+            <h:outputText value="#{dlvry.id}" />
+        </p:column>
+        <p:column headerText="Status">
+            <h:outputText value="#{dlvry.status}" />
+        </p:column>
+    </p:dataTable>
+    <hr/>
 </f:view>
 </html>
