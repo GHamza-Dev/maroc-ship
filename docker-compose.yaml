@@ -1,0 +1,25 @@
+version: "3.1"
+services:
+  maroc_ship:
+    image: quay.io/wildfly/wildfly
+    container_name: maroc_ship_app
+    volumes:
+      - /target:/opt/jboss/wildfly/standalone/deployments
+    ports:
+      - "8081:8080"
+    depends_on:
+      - mysqldb
+  mysqldb:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: maroc_ship
+    ports:
+      - '3306:3306'
+    expose:
+        - '3306'
+    volumes:
+        - mydatabase:/var/lib/mysql
+  volumes:
+    mydatabase:
