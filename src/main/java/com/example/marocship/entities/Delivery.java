@@ -27,24 +27,32 @@ public class Delivery {
     private Timestamp createdAt;
 
     @Column(name = "delivered_at")
-    private Timestamp deliveredAt;
+    private Timestamp deliveredAt = new Timestamp(1);
 
 
     @Column(name = "vehicle_cat_id")
-    private long vehicleCatId;
+    private Long vehicleCatId;
     @ManyToOne
     @JoinColumn(name = "vehicle_cat_id",insertable = false,updatable = false)
     VehicleCategory vehicleCategory;
 
+<<<<<<< HEAD
     @Column(name = "driver_id", insertable = false, updatable = false)
     private long driverId;
 
     @ManyToOne
     @JoinColumn(name = "driver_id")
+=======
+    @Column(name = "driver_id",insertable = false,updatable = false)
+    private Long driverId;
+
+    @ManyToOne
+    @JoinColumn(name = "driver_id",nullable = false)
+>>>>>>> 5dde8c36488b13cadf00f368f88090276d7937a6
     private Driver driver;
 
     @Column(name = "delivery_manager_id")
-    private long deliveryManagerId;
+    private Long deliveryManagerId;
 
     @ManyToOne
     @JoinColumn(name = "delivery_manager_id",insertable = false,updatable = false)
@@ -74,11 +82,11 @@ public class Delivery {
         this.deliveryManager = deliveryManager;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -140,7 +148,7 @@ public class Delivery {
         this.vehicleCategory = vehicleCategory;
     }
 
-    public long getDriverId() {
+    public Long getDriverId() {
         return driverId;
     }
 
@@ -156,7 +164,7 @@ public class Delivery {
         this.driver = driver;
     }
 
-    public long getDeliveryManagerId() {
+    public Long getDeliveryManagerId() {
         return deliveryManagerId;
     }
 
