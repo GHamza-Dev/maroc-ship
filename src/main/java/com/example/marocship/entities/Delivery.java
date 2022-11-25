@@ -36,19 +36,11 @@ public class Delivery {
     @JoinColumn(name = "vehicle_cat_id",insertable = false,updatable = false)
     VehicleCategory vehicleCategory;
 
-<<<<<<< HEAD
-    @Column(name = "driver_id", insertable = false, updatable = false)
-    private long driverId;
-
-    @ManyToOne
-    @JoinColumn(name = "driver_id")
-=======
     @Column(name = "driver_id",insertable = false,updatable = false)
     private Long driverId;
 
     @ManyToOne
     @JoinColumn(name = "driver_id",nullable = false)
->>>>>>> 5dde8c36488b13cadf00f368f88090276d7937a6
     private Driver driver;
 
     @Column(name = "delivery_manager_id")
