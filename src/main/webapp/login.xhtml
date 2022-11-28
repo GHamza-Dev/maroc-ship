@@ -6,14 +6,15 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Login page</title>
+</h:head>
+<h:body>
+
+</h:body>
 <f:view>
-    <h:head>
-        <title>Login page</title>
-    </h:head>
-    <h:body>
-
         <h:form>
-
             <h:outputLabel>Email</h:outputLabel>
             <h:inputText value="#{login.email}" />
             <h:outputLabel >Password</h:outputLabel>
@@ -23,6 +24,5 @@
             <h:outputText rendered="#{auth.authenticated()}" value="Logged in user: #{auth.user.username}"/>
             <h:commandLink value="create manager" action="create-manager" />
         </h:form>
-    </h:body>
 </f:view>
 </html>

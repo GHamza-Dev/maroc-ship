@@ -23,4 +23,8 @@ public class DriversController implements Serializable {
     public List<Person> getDeliveryManager() {
         return new PersonDao<DeliveryManager>().getAll(DeliveryManager.class);
     }
+
+    public void confirmDeliveryByDriver(long id){
+
+    }
 }
