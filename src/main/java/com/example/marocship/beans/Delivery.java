@@ -42,4 +42,12 @@ public class Delivery {
     public void setWeight(float weight) {
         this.weight = weight;
     }
+
+    public void removeObject(){
+        this.setDestination(null);
+        this.setOrigin(null);
+        this.setWeight(0);
+        this.setVehicleCatId(0);
+    }
+
 }

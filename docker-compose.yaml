@@ -1,0 +1,29 @@
+version: "3.1"
+services:
+  web:
+    image: quay.io/wildfly/wildfly
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./target/marocShip-1.0-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/ROOT.war
+  database:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: maroc_ship
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - C:\data:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - "8082:80"
+    environment:
+      - PMA_HOST=database
+      - PMA_PORT=3306
+      - PMA_USER=root
+      - PMA_PASSWORD=password
+    depends_on:
+      - database
+    restart: always
